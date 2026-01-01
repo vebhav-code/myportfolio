@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payload Encoder | Defensive Research Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p class="subtitle">Defensive Security Research Simulation</p>
+            <h1>Custom-Payload-Encoder-Obfuscation-Framework</h1>
+        </header>
+
+        <div class="main-grid">
+            <div class="input-panel">
+                <label class="label">Input Payload / String</label>
+                <textarea id="payloadInput" placeholder="Enter payload string here (e.g., <script>alert(1)</script> or whoami)"></textarea>
+                
+                <div class="controls">
+                    <button id="encodeBtn" class="btn-primary">Encode</button>
+                    <button id="decodeBtn" class="btn-secondary">Decode</button>
+                    <button id="clearBtn" class="btn-danger">Clear</button>
+                </div>
+            </div>
+
+            <div class="terminal-panel">
+                <div class="terminal-header">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                    <span class="terminal-title">bash — researcher@sec-lab:~/obfuscation-framework</span>
+                </div>
+                <div class="terminal-body" id="terminalOutput">
+                    <div class="log-entry">
+                        <span class="prompt">➜</span>
+                        <span class="status-info">Framework initialized. System ready for input.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="../../index.html" class="back-link">← Return to Command Center</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

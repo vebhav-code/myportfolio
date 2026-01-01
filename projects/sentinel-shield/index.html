@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelShield | Web App Security Monitoring</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="../../index.html" class="back-btn">← Back to Portfolio</a>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">
+                        <div class="pulse"></div> System Status
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-value" id="count-total">0</span>
+                            <span class="stat-label">Total Req</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" id="count-blocked" style="color: var(--accent-red)">0</span>
+                            <span class="stat-label">Blocked</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">Request Simulator</span>
+                </div>
+                <div class="panel-body">
+                    <form id="requestForm">
+                        <div class="form-group">
+                            <label>HTTP Method</label>
+                            <select id="method">
+                                <option value="GET">GET</option>
+                                <option value="POST">POST</option>
+                                <option value="PUT">PUT</option>
+                                <option value="DELETE">DELETE</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Request Path</label>
+                            <input type="text" id="path" value="/api/v1/user/profile">
+                        </div>
+                        <div class="form-group">
+                            <label>Query / Body Content</label>
+                            <textarea id="payload" placeholder="e.g. id=123 OR username=admin"></textarea>
+                        </div>
+                        <button type="submit" class="btn-trigger">Scan Request</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">Detection Rules (Active)</span>
+                </div>
+                <div class="panel-body">
+                    <ul style="font-size: 0.75rem; color: var(--text-muted); list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><span style="color: var(--accent-green);">✔</span> SQL
+                            Injection Patterns</li>
+                        <li style="margin-bottom: 0.5rem;"><span style="color: var(--accent-green);">✔</span> XSS Script
+                            Tags</li>
+                        <li style="margin-bottom: 0.5rem;"><span style="color: var(--accent-green);">✔</span> Payload
+                            Length (> 256 bytes)</li>
+                        <li><span style="color: var(--accent-green);">✔</span> Directory Traversal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content (Logs) -->
+        <div class="main-content">
+            <div class="panel" style="flex: 1;">
+                <div class="panel-header">
+                    <span class="panel-title">Real-Time Security Event Log</span>
+                    <span style="font-size: 0.7rem; color: var(--text-muted);">AUTO-REFRESH: ON</span>
+                </div>
+                <div class="log-container">
+                    <table class="log-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Method</th>
+                                <th>Path / Payload</th>
+                                <th>Action</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logBody">
+                            <!-- Logs will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
